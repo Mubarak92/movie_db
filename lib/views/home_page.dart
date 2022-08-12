@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Post>? posts;
+  MovieModel? posts;
   var isLoaded = false;
 
   @override
@@ -46,10 +46,10 @@ getData();
             child: CircularProgressIndicator(),
           ),
           child: ListView.builder(
-              itemCount: posts?.length,
+              itemCount: posts?.results?.length,
               itemBuilder: (context, index) {
                 return Container(
-                  child: Text(posts![index].title),
+                  child: Text(posts!.results![index].title!),
                 );
               }),
         ));
